@@ -1,0 +1,38 @@
+{
+    "hidden_sizes": [
+        [
+            [
+                8,
+                8
+            ],
+            [
+                8,
+                4
+            ]
+        ]
+    ],
+    "K": [
+        1
+    ],
+    "dropout": [
+        0.0
+    ],
+    "gamma": [
+        10.0
+    ],
+    "lambda": [
+        0.7
+    ],
+    "eta": [
+        0.01
+    ],
+    "batch_norm": [
+        true
+    ],
+    "nEpochs": [
+        10
+    ],
+    "schedule_gamma": [
+        true
+    ]
+}
