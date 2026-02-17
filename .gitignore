@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 out
 figures
-data/datasets
+# data/datasets
 out_cluster
 out*
 best_synth
