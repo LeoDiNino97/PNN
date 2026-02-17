@@ -1,0 +1,16 @@
+name: PNN
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - matplotlib=3.10.6
+  - numpy=2.3.2
+  - pandas=2.3.2
+  - scikit-learn=1.7.1
+  - scipy=1.16.1
+  - tqdm=4.67.1
+  - pytorch=2.5.1
+  - pip

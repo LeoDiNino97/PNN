@@ -8,8 +8,8 @@ Results are saved in a CSV file and printed on terminal.
 from training.train_pnn_real import train_pnn
 import json
 
-dset = "adni2" # abide or adni2
-prec_type = "cov" # sample, glasso, joint or cov (for VNN baseline)
+dset = "abide2" # abide or adni2
+prec_type = "joint" # sample, glasso, joint or cov (for VNN baseline)
 
 with open(f"best_params/{dset}_{prec_type}.json", "r") as f:
     loaded_data = json.load(f)
