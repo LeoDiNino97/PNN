@@ -16,7 +16,7 @@ from data.data_loading import load_dataset
 import pandas as pd
 
 
-def train_pnn(dset, iterations=1, prec_type="sample", 
+def train_pnn(dset, iterations=1, prec_type="sample", load_path=None 
               gamma_list=[0.1], lambda_list=[0.1],
               valid=True, hidden_sizes_list=[([32]*2,[32,16])],
               K_list=[1], dropout_list=[0.0], eta_list=[0.1], batch_norm_list=[True],
@@ -74,6 +74,8 @@ def train_pnn(dset, iterations=1, prec_type="sample",
             T, N, F_in = Xtrain.shape
 
             lambda_ = lambda_0 * float(np.sqrt(np.log(N) / T))
+            if prec_type == 'SCGL':
+                _, Prec = torch.from_numpy(np.load(load_path)).float().to(device)
             sampleC, Prec = compute_covariance_and_precision(Xtrain, prec_type, lambda_, eta)
             sampleC, Prec = sampleC.to(device), Prec.to(device)
             

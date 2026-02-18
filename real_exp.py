@@ -7,13 +7,19 @@ Results are saved in a CSV file and printed on terminal.
 
 from training.train_pnn_real import train_pnn
 import json
+import torch
+dset = "abide" # abide or adni2
+prec_type = "glasso" # sample, glasso, joint or cov (for VNN baseline)
+print("CUDA available:", torch.cuda.is_available())
+print("Number of GPUs:", torch.cuda.device_count())
 
-dset = "abide2" # abide or adni2
-prec_type = "joint" # sample, glasso, joint or cov (for VNN baseline)
+if torch.cuda.is_available():
+    print("GPU name:", torch.cuda.get_device_name(0))
+    print("Current device:", torch.cuda.current_device())
 
 with open(f"best_params/{dset}_{prec_type}.json", "r") as f:
     loaded_data = json.load(f)
-    res = train_pnn(dset, iterations=5, prec_type=prec_type, 
+    res = train_pnn(dset, iterations=20, prec_type=prec_type, 
                 gamma_list=loaded_data["gamma_list"], lambda_list=loaded_data["lambda_list"],
                 valid=False, hidden_sizes_list=loaded_data["hidden_sizes_list"],
                 K_list=loaded_data["K_list"], dropout_list=loaded_data["dropout_list"], 
