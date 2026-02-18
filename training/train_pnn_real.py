@@ -16,7 +16,7 @@ from data.data_loading import load_dataset
 import pandas as pd
 
 
-def train_pnn(dset, iterations=1, prec_type="sample", load_path=None 
+def train_pnn(dset, iterations=1, prec_type="sample", load_path=None,
               gamma_list=[0.1], lambda_list=[0.1],
               valid=True, hidden_sizes_list=[([32]*2,[32,16])],
               K_list=[1], dropout_list=[0.0], eta_list=[0.1], batch_norm_list=[True],
